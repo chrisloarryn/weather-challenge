@@ -1,0 +1,16 @@
+
+GET http://localhost:5000/ HTTP/1.1
+content-type: application/json
+
+###
+GET http://localhost:5000/api/v1/weather HTTP/1.1
+content-type: application/json
+
+{
+  "q": "Peumo,cl"
+}
+
+#  "q": "cartagena,cl" // ok
+#  "q": "rOcAs dE sAnTo dOmInGo" // ok
+#  "q": "San pedro de atacama,uk" // 404
+#  "q": "los culenes" // 404
