@@ -10,8 +10,9 @@ import Axios from './../utils/api'
 export const getWeather = async (req: Request, res: Response) => {
   const { q } = req.body
   const url = `/data/2.5/weather?q=${q}&units=metric&APPID=${config.API_KEY}`
+  const mongoQueryParameter = q.includes(',') ? q.split(',')[0] : q
   const savedWeather = await Weather.findOne({
-    name: sentenceToPascalCase(q)
+    name: sentenceToPascalCase(mongoQueryParameter)
   }).select('-__v -updatedAt')
   if (savedWeather) {
     return res.status(200).json({
