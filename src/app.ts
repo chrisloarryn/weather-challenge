@@ -15,7 +15,7 @@ import AppError from './utils/appError'
 const app = express()
 
 // settings
-app.set('port', process.env.PORT || 3000)
+app.set('port', process.env.PORT || 3_000)
 
 // Global middlewares
 app.use(morgan('dev'))
